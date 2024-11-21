@@ -1,3 +1,6 @@
+"""
+This script performs Least Significant Bit steganography to embed encrypted messages into images.
+"""
 from PIL import Image
 import os
 from cryptography.fernet import Fernet
@@ -23,6 +26,7 @@ def decrypt_message(encrypted_message, key):
 def message_to_bits(message):
     return ''.join(format(ord(char), '08b') for char in message)
 
+# embeds a binary-encoded message into the least significant bits of the pixels in an image.
 def embed_message(image_path, message, output_path):
     image = Image.open(image_path)
     image = image.convert('RGB')
@@ -36,7 +40,8 @@ def embed_message(image_path, message, output_path):
 
     for pixel in pixels:
         
-        #set lsb of r field to zero, and then assign it to the message_bits at index
+        #set LSB of r field to zero, and then assign it to the message_bits at that index
+        #using bit masking and a bit or operation
         r, g, b = pixel
 
         if data_index < message_length:
