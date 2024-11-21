@@ -9,4 +9,4 @@ the process of hiding information within other seemingly harmless data to concea
 
 ---
 ### TODO:
-- Use steganographic adaptive embedding to minimize changes to pixel value distributions, making the entropy differences less noticeable.
+- Use steganographic adaptive embedding to minimize changes to pixel value distributions, making the entropy differences less noticeable. This worked well for the flowers, as the pixel count was much higher, but not for LeBron. 
